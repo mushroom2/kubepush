@@ -16,6 +16,28 @@ versions:
 - name: v1
 ```
 
+### Or for Kube > v 1.8
+
+#### Create CustomResourse defenition
+```
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: pushs.k8s.io
+spec:
+  scope: Namespaced
+  group: k8s.io
+  versions:
+    - name: v1
+      served: true
+      storage: true
+  names:
+    kind: Push
+    plural: pushs
+    singular: push
+```
+
+
 #### Create kubepush daemonset
 ```
 apiVersion: extensions/v1beta1
